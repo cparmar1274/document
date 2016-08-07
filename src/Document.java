@@ -137,7 +137,7 @@ class DocumentParserEngine {
 				   this.node.addChildren(currentNode);	
 				}else if(currentNode.heading.weight > latestNode.heading.weight){
 					this.addNode(latestNode,currentNode);
-				} else if (currentNode.heading.weight == latestNode.heading.weight) {
+				} else if (currentNode.heading.weight <= latestNode.heading.weight) {
 					//find parent of latest node and add current node into it
 					Node parentNode = this.getParentNode(latestNode,this.node);
 					parentNode.addChildren(currentNode);
@@ -226,6 +226,35 @@ public class Document {
 			String filePath = "C://Images//Document.txt";
 			DocumentParserEngine docEngine = new DocumentParserEngine(filePath);
 			List<String> documentData = docEngine.readDocument();
+			docEngine.generateParsedDocument(documentData);
+			docEngine.getGeneratedTree();
+			
+			//Test Case 1
+			documentData.clear();
+			documentData.add("HEADING 1\t first1 heading");
+			documentData.add("HEADING 2\t second1 heading");
+			documentData.add("HEADING 3\t third1 heading");
+			documentData.add("HEADING 3\t third2 heading");
+			documentData.add("HEADING 2\t second2 heading");
+			documentData.add("HEADING 3\t third3 heading");
+			documentData.add("HEADING 3\t third4 heading");
+			documentData.add("HEADING 1\t first2 heading");
+			documentData.add("HEADING 1\t first3 heading");
+			documentData.add("HEADING 1\t first4 heading");
+			docEngine.node.heading = null;
+			docEngine.node.children.clear();
+			docEngine.generateParsedDocument(documentData);
+			docEngine.getGeneratedTree();
+			
+			//Test Case 2
+			documentData.clear();
+			documentData.add("HEADING 1\t first1 heading");
+			documentData.add("HEADING 3\t third1 heading");
+			documentData.add("HEADING 2\t second2 heading");
+			documentData.add("HEADING 3\t third4 heading");
+			documentData.add("HEADING 1\t first3 heading");
+			docEngine.node.heading = null;
+			docEngine.node.children.clear();
 			docEngine.generateParsedDocument(documentData);
 			docEngine.getGeneratedTree();
 			
