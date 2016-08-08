@@ -1,0 +1,9 @@
+HEADING 1	All about Birds
+HEADING 2	Kinds of Birds
+HEADING 3 	The Finch
+PARAGRAPH	The true finches are small to medium-sized passerine birds in the family Fringillidae.
+HEADING 3	The Swan
+PARAGRAPH	Swans are the birds of family antidaw within  the genus Cygnus.
+HEADING 2	Habitats
+HEADING 3	Wetlands
+PARAGRAPH	A wetland is a land area that is saturated with water, either permantely or seasonally,such that it takes on the characteristics of a distinct ecosystem.

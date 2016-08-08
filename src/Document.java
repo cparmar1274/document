@@ -7,6 +7,10 @@ import java.util.List;
 
 import com.google.gson.Gson;
 
+/*
+ * @author Chirag Parmar (chirag-parmar@live.com)
+ * 
+ * */
 class Node{
 
 	public Heading heading;
@@ -111,6 +115,7 @@ class DocumentParserEngine {
 
 		Node currentNode;
 		for (String line : documentData) {
+			
 			if (line.isEmpty() || !line.toUpperCase().startsWith("HEADING"))
 				continue;
 
@@ -223,7 +228,8 @@ public class Document {
 	public static void main(String[] args) {
 		try {
 			
-			String filePath = "C://Images//Document.txt";
+			/* Provide File Path containing document */
+			String filePath = "//home//chiragparmar//workspace//Predictive//src//main//java//starter//document//document.txt";
 			DocumentParserEngine docEngine = new DocumentParserEngine(filePath);
 			List<String> documentData = docEngine.readDocument();
 			docEngine.generateParsedDocument(documentData);
